@@ -26,11 +26,11 @@
       <table *ngIf="dataLoaded==true" class="table mt-5">
         <thead class="table-dark">
             <tr>
-                <th>Marka</th>
-                <th>Renk</th>
+                <th>Brand</th>
+                <th>Color</th>
                 <th>Model</th>
-                <th>Günlük Fiyat</th>
-                <th>Açıklama</th>
+                <th>Daily Price</th>
+                <th>Description</th>
             
     
             </tr>
@@ -42,7 +42,7 @@
                 <td>{{car.modelYear}}</td>
                 <td>{{car.dailyPrice}}</td>
                 <td>{{car.description}}</td>
-                <button type="button" routerLink = "/car/rental/{{car.carId}}" class="btn btn-outline-dark ms-5">Kirala</button>
+                <button type="button" routerLink = "/car/rental/{{car.carId}}" class="btn btn-outline-dark ms-5">Rent</button>
         
             </tr>
         </tbody>

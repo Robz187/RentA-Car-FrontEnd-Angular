@@ -9,7 +9,7 @@
   
       <label for="carFilter" class="form-label"></label>
       <input type="text" [(ngModel)]="carFilter" class="form-control" id="carFilter" 
-      placeholder="arama ifadesi giriniz">
+      placeholder="Enter search term">
     </div>
     
     <app-car-filter></app-car-filter>
@@ -22,17 +22,17 @@
               <p class="card-text d-flex justify-content-center">{{car.description}}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Marka: {{car.brandName}}</li>
-              <li class="list-group-item">Renk: {{car.colorName}}</li>
-              <li class="list-group-item">Model: {{car.modelYear}}</li>
-              <li class="list-group-item">Fiyat: {{car.dailyPrice }}</li>
+              <li class="list-group-item">Brand: {{car.brandName}}</li>
+              <li class="list-group-item">Color: {{car.colorName}}</li>
+              <li class="list-group-item">Model Year: {{car.modelYear}}</li>
+              <li class="list-group-item">Price: {{car.dailyPrice }}</li>
             </ul>
             <div class="card-body">
                 <section style="float:left">
-                  <button routerLink="/car/details/{{car.carId }}" type="button" class="btn btn-outline-dark">Detay</button>
+                  <button routerLink="/car/details/{{car.carId }}" type="button" class="btn btn-outline-dark">Details</button>
                 </section>
                 <section style="float: right">
-                  <button routerLink="/car/rental/{{car.carId}}" type="button" class="btn btn-outline-dark">Kirala</button>
+                  <button routerLink="/car/rental/{{car.carId}}" type="button" class="btn btn-outline-dark">Rent</button>
                 </section>
             </div>
           </div>

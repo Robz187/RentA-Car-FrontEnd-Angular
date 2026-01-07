@@ -123,25 +123,25 @@ export class CarEditComponent implements OnInit {
       carModel.modelYear = parseInt(carModel.modelYear);
 
       this.carService.updateCar(carModel).subscribe(response => {
-        this.toastrService.success("Araba başarıyla güncellendi.");
+        this.toastrService.success("Car updated successfully.");
         this.router.navigate(['/admin/cars']);
-        this.toastrService.info("Arabalar düzenleme sayfasına yönlendiriliyorsunuz.");
+        this.toastrService.info("Redirecting to cars edit page.");
       }, responseError => {
         if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
             const element = responseError.error.ValidationErrors[i];
-            this.toastrService.error(element.ErrorMessage, "Araç Güncellenemedi");
+            this.toastrService.error(element.ErrorMessage, "Vehicle could not be updated");
           }
         }
       });
     } else {
-      this.toastrService.warning("Formu eksiksiz doldurmalısınız.");
+      this.toastrService.warning("Please complete the form.");
     }
 
   }
 
   deleteCar() {
-    if (window.confirm('Arabayı sildiğine emin misin?')) {
+    if (window.confirm('Are you sure you want to delete the car?')) {
       let carModule: Car = {
         carId: this.car.carId,
         ...this.carUpdateForm.value,

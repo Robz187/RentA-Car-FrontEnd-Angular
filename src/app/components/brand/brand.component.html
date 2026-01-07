@@ -5,14 +5,14 @@
 <div class="" >
   <label for="brandFilter" class="form-label"></label>
   <input type="text" [(ngModel)]="brandFilter" class="form-control" id="brandFilter" 
-  placeholder="arama ifadesi giriniz">
+  placeholder="Enter search term">
 </div>
 
 <ul *ngIf="dataLoaded == true" class="list-group ">
     <li 
       routerLink="/cars" [ngClass]="getAllBrandClass()"
      >
-        Tüm Markalar
+        All Brands
     </li>
     <li (click)="setCurrentBrand(brand)" 
     

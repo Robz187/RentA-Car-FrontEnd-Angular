@@ -3,6 +3,7 @@ import { Brand } from 'src/app/models/brand';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { ColorService } from 'src/app/services/color.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-filter',
@@ -12,12 +13,13 @@ import { ColorService } from 'src/app/services/color.service';
 export class CarFilterComponent implements OnInit {
 
   constructor(private brandService: BrandService,
-    private colorService: ColorService) { }
+    private colorService: ColorService,
+    private router: Router) { }
 
   colors:Color[]=[];
   brands:Brand[]=[];
-  brandIdFilter:number;
-  colorIdFilter:number;
+  brandIdFilter:number = 0;
+  colorIdFilter:number = 0;
 
   ngOnInit(): void {
     this.getBrands();
@@ -51,6 +53,17 @@ export class CarFilterComponent implements OnInit {
       return false;
     }
   }
-
  
+  applyFilter(){
+    const b = this.brandIdFilter ? this.brandIdFilter : 0;
+    const c = this.colorIdFilter ? this.colorIdFilter : 0;
+    this.router.navigate(['/cars','filter', b, c]);
+  }
+
+  clearFilters(){
+    this.brandIdFilter = 0;
+    this.colorIdFilter = 0;
+    this.router.navigate(['/cars']);
+  }
+
 }

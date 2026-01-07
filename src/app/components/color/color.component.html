@@ -5,7 +5,7 @@
 <div class="">
   <label for="colorFilter" class="form-label"></label>
   <input type="text" [(ngModel)]="colorFilter" class="form-control" id="colorFilter" 
-  placeholder="arama ifadesi giriniz">
+  placeholder="Enter search term">
 </div>
 
  <ul *ngIf="dataLoaded == true" class="list-group">
@@ -13,7 +13,7 @@
     routerLink="/cars" [ngClass]="getAllColorClass()"  aria-current="true"
     >
      
-    Tüm Renkler
+    All Colors
     </li>
     <li (click)="setCurrentColor(color)" *ngFor="let color of colors  |colorFilter:colorFilter" 
     routerLink="/cars/color/{{color.colorId}}"

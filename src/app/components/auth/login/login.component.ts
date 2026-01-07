@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
        if(this.loginForm.valid){
       let loginModel =Object.assign({},this.loginForm.value)
       this.authService.login(loginModel).subscribe(response=>{
-        this.toasterService.success(response.message,"Başarılı");
+        this.toasterService.success(response.message,"Success");
         localStorage.setItem("token",response.data.token);
         this.dataLoaded=true;
         this.authService.onRefresh();
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       })
     }
      else {
-      this.toasterService.error("Lütfen tüm alanları doldurunuz","Dikkat!")
+      this.toasterService.error("Please fill in all fields","Warning!")
     }
     }
    

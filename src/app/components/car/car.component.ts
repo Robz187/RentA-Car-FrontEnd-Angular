@@ -21,18 +21,17 @@ carFilter:string = "";
   ngOnInit(): void {
     
     this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"] && params["colorId"]){
-        this.getCarsBySelect(params["brandId"],params["colorId"])
-      }
-      else if(params["colorId"]){
-        this.getCarsByColor(params["colorId"]);
-      }
-      else if(params["brandId"]){
-        this.getCarsByBrand(params["brandId"])
-        
-      }
-      else{
-        this.getCars()
+      const brandId = params['brandId'] ? Number(params['brandId']) : 0;
+      const colorId = params['colorId'] ? Number(params['colorId']) : 0;
+
+      if (brandId > 0 && colorId > 0) {
+        this.getCarsBySelect(brandId, colorId);
+      } else if (colorId > 0) {
+        this.getCarsByColor(colorId);
+      } else if (brandId > 0) {
+        this.getCarsByBrand(brandId);
+      } else {
+        this.getCars();
       }
     })
     

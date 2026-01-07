@@ -25,7 +25,7 @@ import { UsereditComponent } from './components/auth/user-profil/useredit/usered
 const routes: Routes = [
   {path:"",pathMatch:"full",component:HomeComponent},  
   {path:"home",component:HomeComponent}, 
-  {path:"cars",component:CarComponent,},
+  {path:"cars",component:CarComponent, pathMatch: "full"},
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"cars/brand/:brandId/color/:colorId", component:CarComponent},
